@@ -3,7 +3,7 @@ import 'package:flutter_todo/core/di/configure_providers.dart';
 import 'package:flutter_todo/ui/page/tasks_list_page.dart';
 import 'package:provider/provider.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final data = await ConfigureProviders.createDependencyTree();

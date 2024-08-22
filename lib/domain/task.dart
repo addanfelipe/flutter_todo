@@ -1,23 +1,15 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'task.freezed.dart';
 part 'task.g.dart';
 
-@JsonSerializable()
-class Task {
-  String title;
-  String description;
+@freezed
+class Task with _$Task {
+  const factory Task({
+    required String title,
+    required String description,
+  }) = _Task;
 
-  Task({
-    required this.title,
-    required this.description,
-  });
-
-  factory Task.fromJson(Map<String, dynamic> json) => _$TaskFromJson(json);
-
-// Método para serializar um objeto Task em JSON
-  Map<String, dynamic> toJson() => _$TaskToJson(this);
-
-  String toString() {
-    return 'Task{title: $title, description: $description}';
-  }
+  factory Task.fromJson(Map<String, Object?> json)
+      => _$TaskFromJson(json);
 }

@@ -1,4 +1,4 @@
-package com.example.flutter_repository_clean
+package com.example.flutter_todo
 
 import io.flutter.embedding.android.FlutterActivity
 

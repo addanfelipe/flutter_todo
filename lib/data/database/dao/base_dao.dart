@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_repository_clean/data/database/entity/movie_database_entity.dart';
+import 'package:flutter_todo/data/database/entity/movie_database_entity.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

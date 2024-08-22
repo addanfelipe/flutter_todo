@@ -1,8 +1,8 @@
-import 'package:flutter_repository_clean/data/database/dao/movie_dao.dart';
-import 'package:flutter_repository_clean/data/database/database_mapper.dart';
-import 'package:flutter_repository_clean/data/network/client/api_client.dart';
-import 'package:flutter_repository_clean/data/network/network_mapper.dart';
-import 'package:flutter_repository_clean/data/repository/movie_repository.dart';
+import 'package:flutter_todo/data/database/dao/movie_dao.dart';
+import 'package:flutter_todo/data/database/database_mapper.dart';
+import 'package:flutter_todo/data/network/client/api_client.dart';
+import 'package:flutter_todo/data/network/network_mapper.dart';
+import 'package:flutter_todo/data/repository/movie_repository.dart';
 
 import '../../domain/movie.dart';
 

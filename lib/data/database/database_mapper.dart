@@ -1,6 +1,6 @@
-import 'package:flutter_repository_clean/data/database/entity/movie_database_entity.dart';
-import 'package:flutter_repository_clean/domain/exception/mapper_exception.dart';
-import 'package:flutter_repository_clean/domain/movie.dart';
+import 'package:flutter_todo/data/database/entity/movie_database_entity.dart';
+import 'package:flutter_todo/domain/exception/mapper_exception.dart';
+import 'package:flutter_todo/domain/movie.dart';
 
 
 class DatabaseMapper{

@@ -1,8 +1,8 @@
-import 'package:flutter_repository_clean/data/database/dao/movie_dao.dart';
-import 'package:flutter_repository_clean/data/database/database_mapper.dart';
-import 'package:flutter_repository_clean/data/network/client/api_client.dart';
-import 'package:flutter_repository_clean/data/network/network_mapper.dart';
-import 'package:flutter_repository_clean/data/repository/movie_repository_impl.dart';
+import 'package:flutter_todo/data/database/dao/movie_dao.dart';
+import 'package:flutter_todo/data/database/database_mapper.dart';
+import 'package:flutter_todo/data/network/client/api_client.dart';
+import 'package:flutter_todo/data/network/network_mapper.dart';
+import 'package:flutter_todo/data/repository/movie_repository_impl.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -13,7 +13,7 @@ class ConfigureProviders {
 
   static Future<ConfigureProviders> createDependencyTree() async {
 
-    final api_client = ApiClient(baseUrl: "http://10.0.2.2:3000");
+    final api_client = ApiClient(baseUrl: "http://192.168.0.21:3000");
     final network_mapper = NetworkMapper();
     final database_mapper = DatabaseMapper();
     final movie_dao = MovieDao();

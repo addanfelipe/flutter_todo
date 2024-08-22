@@ -3,6 +3,7 @@ import 'package:flutter_todo/data/database/database_mapper.dart';
 import 'package:flutter_todo/data/network/client/api_client.dart';
 import 'package:flutter_todo/data/network/network_mapper.dart';
 import 'package:flutter_todo/data/repository/movie_repository.dart';
+import 'package:flutter_todo/domain/task.dart';
 
 import '../../domain/movie.dart';
 
@@ -32,5 +33,10 @@ class MovieRepositoryImpl implements MovieRepository {
     movieDao.insertAll(databaseMapper.toMovieDatabaseEntities(movies));
 
     return movies;
+  }
+
+  Future<List<Task>> getTasks({ required int page, required int limit}) async {
+    final tasks = await apiClient.getTasks(page: page, limit: limit);
+    return tasks;
   }
 }

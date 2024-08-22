@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_todo/domain/task.dart';
 
 import '../../../domain/exception/network_exception.dart';
 import '../entity/http_paged_result.dart';
@@ -37,6 +38,28 @@ class ApiClient {
       );
     } else if (response.statusCode != null) {
       final HttpPagedResult receivedData = HttpPagedResult.fromJson(response.data as Map<String, dynamic>);
+
+      return receivedData.data;
+    } else {
+      throw Exception('Unknown error');
+    }
+  }
+
+  Future<List<Task>> getTasks({int? page, int? limit}) async {
+    final response = await _dio.get(
+      "/tasks",
+      queryParameters: {
+        '_page': page,
+        '_per_page': limit,
+      },
+    );
+    if (response.statusCode != null && response.statusCode! >= 400) {
+      throw NetworkException(
+        statusCode: response.statusCode!,
+        message: response.statusMessage,
+      );
+    } else if (response.statusCode != null) {
+      final TasksPagedHttpResponse receivedData = TasksPagedHttpResponse.fromJson(response.data as Map<String, dynamic>);
 
       return receivedData.data;
     } else {

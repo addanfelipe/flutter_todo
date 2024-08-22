@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo/core/di/configure_providers.dart';
-import 'package:flutter_todo/ui/page/movies_list_page.dart';
+import 'package:flutter_todo/ui/page/tasks_list_page.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async{
@@ -27,7 +27,7 @@ class AppRoot extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MoviesListPage(),
+        home: const TasksListPage(),
       ),
     );
   }

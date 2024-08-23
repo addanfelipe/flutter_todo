@@ -46,8 +46,8 @@ class _TasksListPageState extends State<TasksListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Tasks"),
-          backgroundColor: Theme.of(context).primaryColorLight,
+          title: Text("Tarefas"),
+          backgroundColor: Theme.of(context).primaryColorDark,
         ),
         body: PagedListView<int, Task>(
           pagingController: _pagingController,

@@ -4,7 +4,7 @@ import 'package:flutter_todo/ui/widgets/task_card.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/repository/movie_repository_impl.dart';
+import '../../data/repository/task_repository_impl.dart';
 
 class TasksListPage extends StatefulWidget {
   const TasksListPage({super.key});
@@ -15,17 +15,17 @@ class TasksListPage extends StatefulWidget {
 
 class _TasksListPageState extends State<TasksListPage> {
 
-  late final MovieRepositoryImpl moviesRepo;
+  late final TaskRepositoryImpl task_repository;
   late final PagingController<int, Task> _pagingController = PagingController(firstPageKey: 1);
 
   @override
   void initState() {
     super.initState();
-    moviesRepo = Provider.of<MovieRepositoryImpl>(context, listen: false);
+    task_repository = Provider.of<TaskRepositoryImpl>(context, listen: false);
     _pagingController.addPageRequestListener(
       (pageKey) async {
         try {
-          final tasks = await moviesRepo.getTasks(page: pageKey, limit: 10);
+          final tasks = await task_repository.getTasks(page: pageKey, limit: 10);
 
           _pagingController.appendPage(tasks, null);
 //          _pagingController.appendPage(tasks, pageKey + 1);

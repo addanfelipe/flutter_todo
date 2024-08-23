@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo/core/di/configure_providers.dart';
+import 'package:flutter_todo/core/configure_providers.dart';
 import 'package:flutter_todo/ui/page/tasks_list_page.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +22,7 @@ class AppRoot extends StatelessWidget {
       providers: data.providers,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'The Movie Database',
+        title: 'To-do List',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,

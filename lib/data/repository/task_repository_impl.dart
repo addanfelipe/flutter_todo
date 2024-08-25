@@ -10,22 +10,45 @@ class TaskRepositoryImpl implements TaskRepository {
 
   TaskRepositoryImpl({required this.apiClient, required this.database});
 
-  Future<List<Task>> getTasks({required int page, required int limit}) async {
+  @override
+  Future<GetTasksResult> getTasks(
+      {required int page, required int limit}) async {
     try {
       final tasks = await apiClient.getTasks(page: page, limit: limit);
 
       await database.taskDao.deleteAllTasks();
 
-      await database.taskDao.insertTasks(tasks
+      await database.taskDao.insertTasks(tasks.data
           .map<TaskEntity>((Task task) => TaskEntity.fromTask(task))
           .toList());
 
-      return tasks;
+      return GetTasksResult(
+          first: tasks.first,
+          prev: tasks.prev,
+          next: tasks.next,
+          last: tasks.last,
+          pages: tasks.pages,
+          items: tasks.items,
+          data: tasks.data);
     } catch (e) {
       final ts = await database.taskDao.findAll();
       final tasks = ts.map<Task>((TaskEntity task) => task.toTask()).toList();
 
-      return tasks;
+      return GetTasksResult(
+          first: 1,
+          prev: null,
+          next: null,
+          last: 1,
+          pages: 1,
+          items: tasks.length,
+          data: tasks);
     }
+  }
+
+  @override
+  Future<Task> createTask({required Task task}) async {
+    final newTask = await apiClient.createTask(task: task);
+    database.taskDao.insertTask(TaskEntity.fromTask(newTask));
+    return newTask;
   }
 }

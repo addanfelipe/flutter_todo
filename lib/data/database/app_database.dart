@@ -7,7 +7,7 @@ import 'package:flutter_todo/data/database/task_dao.dart';
 
 part 'app_database.g.dart'; // the generated code will be there
 
-@Database(version: 1, entities: [TaskEntity])
+@Database(version: 2, entities: [TaskEntity])
 abstract class AppDatabase extends FloorDatabase {
   TaskDao get taskDao;
 }

@@ -9,8 +9,8 @@ abstract class TaskDao {
   @Query('SELECT title FROM tasks')
   Stream<List<String>> findAllTaskTitle();
 
-  @Query('SELECT * FROM tasks WHERE title = :title')
-  Stream<TaskEntity?> findTaskByTitle(String title);
+  @Query('SELECT * FROM tasks WHERE id = :id')
+  Stream<TaskEntity?> findTaskByid(String id);
 
   @insert
   Future<void> insertTask(TaskEntity task);

@@ -80,7 +80,7 @@ class _$AppDatabase extends AppDatabase {
     Callback? callback,
   ]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
-      version: 1,
+      version: 2,
       onConfigure: (database) async {
         await database.execute('PRAGMA foreign_keys = ON');
         await callback?.onConfigure?.call(database);
@@ -96,7 +96,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `tasks` (`title` TEXT NOT NULL, `description` TEXT NOT NULL, PRIMARY KEY (`title`))');
+            'CREATE TABLE IF NOT EXISTS `tasks` (`id` TEXT NOT NULL, `title` TEXT NOT NULL, `description` TEXT NOT NULL, `isCompleted` INTEGER NOT NULL, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -119,8 +119,10 @@ class _$TaskDao extends TaskDao {
             database,
             'tasks',
             (TaskEntity item) => <String, Object?>{
+                  'id': item.id,
                   'title': item.title,
-                  'description': item.description
+                  'description': item.description,
+                  'isCompleted': item.isCompleted ? 1 : 0
                 },
             changeListener);
 
@@ -136,8 +138,10 @@ class _$TaskDao extends TaskDao {
   Future<List<TaskEntity>> findAll() async {
     return _queryAdapter.queryList('SELECT * FROM tasks',
         mapper: (Map<String, Object?> row) => TaskEntity(
+            id: row['id'] as String,
             title: row['title'] as String,
-            description: row['description'] as String));
+            description: row['description'] as String,
+            isCompleted: (row['isCompleted'] as int) != 0));
   }
 
   @override
@@ -149,12 +153,14 @@ class _$TaskDao extends TaskDao {
   }
 
   @override
-  Stream<TaskEntity?> findTaskByTitle(String title) {
-    return _queryAdapter.queryStream('SELECT * FROM tasks WHERE title = ?1',
+  Stream<TaskEntity?> findTaskByid(String id) {
+    return _queryAdapter.queryStream('SELECT * FROM tasks WHERE id = ?1',
         mapper: (Map<String, Object?> row) => TaskEntity(
+            id: row['id'] as String,
             title: row['title'] as String,
-            description: row['description'] as String),
-        arguments: [title],
+            description: row['description'] as String,
+            isCompleted: (row['isCompleted'] as int) != 0),
+        arguments: [id],
         queryableName: 'tasks',
         isView: false);
   }

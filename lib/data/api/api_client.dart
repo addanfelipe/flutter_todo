@@ -21,7 +21,7 @@ class ApiClient {
       );
   }
 
-  Future<List<Task>> getTasks({int? page, int? limit}) async {
+  Future<TasksPagedHttpResponse> getTasks({int? page, int? limit}) async {
     final response = await _dio.get(
       "/tasks",
       queryParameters: {
@@ -39,7 +39,25 @@ class ApiClient {
           TasksPagedHttpResponse.fromJson(
               response.data as Map<String, dynamic>);
 
-      return receivedData.data;
+      return receivedData;
+    } else {
+      throw Exception('Unknown error');
+    }
+  }
+
+  Future<Task> createTask({required Task task}) async {
+    final data = task.toJson();
+    data.remove("id");
+
+    final response = await _dio.post("/tasks", data: data);
+
+    if (response.statusCode != null && response.statusCode! >= 400) {
+      throw NetworkException(
+        statusCode: response.statusCode!,
+        message: response.statusMessage,
+      );
+    } else if (response.statusCode != null) {
+      return Task.fromJson(response.data);
     } else {
       throw Exception('Unknown error');
     }

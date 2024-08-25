@@ -64,4 +64,18 @@ class ApiClient {
       throw Exception('Unknown error');
     }
   }
+
+  Future<void> deleteTask({required String id}) async {
+    final response = await _dio.delete("/tasks/$id");
+
+    if (response.statusCode != null && response.statusCode! >= 400) {
+      throw NetworkException(
+        statusCode: response.statusCode!,
+        message: response.statusMessage,
+      );
+    } else if (response.statusCode != null) {
+    } else {
+      throw Exception('Unknown error');
+    }
+  }
 }

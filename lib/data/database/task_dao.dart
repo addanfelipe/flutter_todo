@@ -20,4 +20,7 @@ abstract class TaskDao {
 
   @Query('DELETE FROM tasks')
   Future<void> deleteAllTasks();
+
+  @Query('DELETE FROM tasks id = :id')
+  Future<void> deleteTask(String id);
 }

@@ -35,7 +35,8 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
     _pagingController.addPageRequestListener(
       (pageKey) async {
         try {
-          final tasks = await taskRepository.getTasks(page: pageKey, limit: 10, isCompleted: false);
+          final tasks = await taskRepository.getTasks(
+              page: pageKey, limit: 10, isCompleted: false);
           _pagingController.appendPage(tasks.data, tasks.next);
         } catch (e) {
           _pagingController.error = e;
@@ -76,7 +77,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
     );
 
     if (shouldDelete == true) {
-//      await taskRepository.deleteTask(task.id);
+      await taskRepository.deleteTask(id: task.id as String);
       setState(() {
         _pagingController.itemList?.remove(task);
       });
@@ -95,7 +96,6 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
       _isCreatingTask = true;
     });
     Future.delayed(Duration(milliseconds: 100), () {
-      // Delay to ensure the widget is built before focusing
       _titleTaskCreateFocusNode.requestFocus();
     });
   }
@@ -113,7 +113,8 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
     final description = _descriptionController.text;
 
     if (title.isNotEmpty && description.isNotEmpty) {
-      final newTask = Task(title: title, description: description, isCompleted: false);
+      final newTask =
+          Task(title: title, description: description, isCompleted: false);
       final task = await taskRepository.createTask(task: newTask);
 
       setState(() {
@@ -190,8 +191,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
                         child: Center(
                           child: Icon(
                             Icons.check,
-                            color:
-                                Theme.of(context).colorScheme.onPrimary,
+                            color: Theme.of(context).colorScheme.onPrimary,
                           ),
                         ),
                       ),

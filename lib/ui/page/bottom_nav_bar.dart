@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo/ui/page/tasks_completed_list_page.dart';
 import 'tasks_opened_list_page.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -13,7 +14,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> _pages = [
     TasksOpenedListPage(title: 'Tarefas Abertas'),
-    TasksOpenedListPage(title: 'Tarefas Concluídas'),
+    TasksCompletedListPage(title: 'Tarefas Concluídas'),
   ];
 
   void _onItemTapped(int index) {

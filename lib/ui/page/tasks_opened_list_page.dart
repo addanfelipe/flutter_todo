@@ -84,7 +84,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
     }
   }
 
-  Future<void> _handleCompletedTask(Task task) async {
+  Future<void> _handleCompleteTask(Task task) async {
     final updatedTask = task.copyWith(isCompleted: true);
     await taskRepository.updateTask(task: updatedTask);
     setState(() {
@@ -131,8 +131,11 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-        backgroundColor: Theme.of(context).primaryColorDark,
+        title: Text(
+          widget.title,
+          style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Column(
         children: [
@@ -185,7 +188,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
                   rightWidget: Expanded(
                     flex: 1,
                     child: InkWell(
-                      onTap: () => _handleCompletedTask(task),
+                      onTap: () => _handleCompleteTask(task),
                       child: Container(
                         height: 100,
                         color: Theme.of(context).colorScheme.primary,

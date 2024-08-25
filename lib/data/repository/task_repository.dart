@@ -29,6 +29,6 @@ class GetTasksResult {
 }
 
 abstract class TaskRepository {
-  Future<GetTasksResult> getTasks({required int page, required int limit});
+  Future<GetTasksResult> getTasks({required int page, required int limit, required bool isCompleted});
   Future<Task> createTask({required Task task});
 }

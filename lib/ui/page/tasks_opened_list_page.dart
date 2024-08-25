@@ -35,7 +35,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
     _pagingController.addPageRequestListener(
       (pageKey) async {
         try {
-          final tasks = await taskRepository.getTasks(page: pageKey, limit: 10);
+          final tasks = await taskRepository.getTasks(page: pageKey, limit: 10, isCompleted: false);
           _pagingController.appendPage(tasks.data, tasks.next);
         } catch (e) {
           _pagingController.error = e;

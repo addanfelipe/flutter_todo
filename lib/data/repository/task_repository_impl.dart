@@ -12,9 +12,9 @@ class TaskRepositoryImpl implements TaskRepository {
 
   @override
   Future<GetTasksResult> getTasks(
-      {required int page, required int limit}) async {
+      {required int page, required int limit, required bool isCompleted}) async {
     try {
-      final tasks = await apiClient.getTasks(page: page, limit: limit);
+      final tasks = await apiClient.getTasks(page: page, limit: limit, isCompleted: isCompleted);
 
       await database.taskDao.deleteAllTasks();
 

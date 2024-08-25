@@ -21,12 +21,14 @@ class ApiClient {
       );
   }
 
-  Future<TasksPagedHttpResponse> getTasks({int? page, int? limit}) async {
+  Future<TasksPagedHttpResponse> getTasks(
+      {int? page, int? limit, required bool isCompleted}) async {
     final response = await _dio.get(
       "/tasks",
       queryParameters: {
         '_page': page,
         '_per_page': limit,
+        'isCompleted': isCompleted
       },
     );
     if (response.statusCode != null && response.statusCode! >= 400) {

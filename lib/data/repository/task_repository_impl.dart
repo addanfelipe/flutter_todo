@@ -16,7 +16,7 @@ class TaskRepositoryImpl implements TaskRepository {
     try {
       final tasks = await apiClient.getTasks(page: page, limit: limit, isCompleted: isCompleted);
 
-      await database.taskDao.deleteAllTasks();
+      await database.taskDao.deleteTasks(isCompleted);
 
       await database.taskDao.insertTasks(tasks.data
           .map<TaskEntity>((Task task) => TaskEntity.fromTask(task))
@@ -31,7 +31,7 @@ class TaskRepositoryImpl implements TaskRepository {
           items: tasks.items,
           data: tasks.data);
     } catch (e) {
-      final ts = await database.taskDao.findAll();
+      final ts = await database.taskDao.findTasks(isCompleted);
       final tasks = ts.map<Task>((TaskEntity task) => task.toTask()).toList();
 
       return GetTasksResult(

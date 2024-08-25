@@ -114,7 +114,7 @@ class _$TaskDao extends TaskDao {
   _$TaskDao(
     this.database,
     this.changeListener,
-  )   : _queryAdapter = QueryAdapter(database, changeListener),
+  )   : _queryAdapter = QueryAdapter(database),
         _taskEntityInsertionAdapter = InsertionAdapter(
             database,
             'tasks',
@@ -123,8 +123,7 @@ class _$TaskDao extends TaskDao {
                   'title': item.title,
                   'description': item.description,
                   'isCompleted': item.isCompleted ? 1 : 0
-                },
-            changeListener),
+                }),
         _taskEntityUpdateAdapter = UpdateAdapter(
             database,
             'tasks',
@@ -134,8 +133,7 @@ class _$TaskDao extends TaskDao {
                   'title': item.title,
                   'description': item.description,
                   'isCompleted': item.isCompleted ? 1 : 0
-                },
-            changeListener);
+                });
 
   final sqflite.DatabaseExecutor database;
 
@@ -148,39 +146,21 @@ class _$TaskDao extends TaskDao {
   final UpdateAdapter<TaskEntity> _taskEntityUpdateAdapter;
 
   @override
-  Future<List<TaskEntity>> findAll() async {
-    return _queryAdapter.queryList('SELECT * FROM tasks',
-        mapper: (Map<String, Object?> row) => TaskEntity(
-            id: row['id'] as String,
-            title: row['title'] as String,
-            description: row['description'] as String,
-            isCompleted: (row['isCompleted'] as int) != 0));
-  }
-
-  @override
-  Stream<List<String>> findAllTaskTitle() {
-    return _queryAdapter.queryListStream('SELECT title FROM tasks',
-        mapper: (Map<String, Object?> row) => row.values.first as String,
-        queryableName: 'tasks',
-        isView: false);
-  }
-
-  @override
-  Stream<TaskEntity?> findTaskByid(String id) {
-    return _queryAdapter.queryStream('SELECT * FROM tasks WHERE id = ?1',
+  Future<List<TaskEntity>> findTasks(bool isCompleted) async {
+    return _queryAdapter.queryList('SELECT * FROM tasks WHERE isCompleted = ?1',
         mapper: (Map<String, Object?> row) => TaskEntity(
             id: row['id'] as String,
             title: row['title'] as String,
             description: row['description'] as String,
             isCompleted: (row['isCompleted'] as int) != 0),
-        arguments: [id],
-        queryableName: 'tasks',
-        isView: false);
+        arguments: [isCompleted ? 1 : 0]);
   }
 
   @override
-  Future<void> deleteAllTasks() async {
-    await _queryAdapter.queryNoReturn('DELETE FROM tasks');
+  Future<void> deleteTasks(bool isCompleted) async {
+    await _queryAdapter.queryNoReturn(
+        'DELETE FROM tasks WHERE isCompleted = ?1',
+        arguments: [isCompleted ? 1 : 0]);
   }
 
   @override

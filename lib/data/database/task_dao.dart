@@ -3,14 +3,8 @@ import 'package:flutter_todo/data/database/task_entity.dart';
 
 @dao
 abstract class TaskDao {
-  @Query('SELECT * FROM tasks')
-  Future<List<TaskEntity>> findAll();
-
-  @Query('SELECT title FROM tasks')
-  Stream<List<String>> findAllTaskTitle();
-
-  @Query('SELECT * FROM tasks WHERE id = :id')
-  Stream<TaskEntity?> findTaskByid(String id);
+  @Query('SELECT * FROM tasks WHERE isCompleted = :isCompleted')
+  Future<List<TaskEntity>> findTasks(bool isCompleted);
 
   @insert
   Future<void> insertTask(TaskEntity task);
@@ -18,8 +12,8 @@ abstract class TaskDao {
   @insert
   Future<void> insertTasks(List<TaskEntity> tasks);
 
-  @Query('DELETE FROM tasks')
-  Future<void> deleteAllTasks();
+  @Query('DELETE FROM tasks WHERE isCompleted = :isCompleted')
+  Future<void> deleteTasks(bool isCompleted);
 
   @Query('DELETE FROM tasks id = :id')
   Future<void> deleteTask(String id);

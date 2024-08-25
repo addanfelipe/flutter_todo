@@ -1,16 +1,16 @@
 {
-    "todo": [
-        {
-            "id": "2024-08-21T23:58:09.898414",
-            "title": "Pagar Cartão",
-            "description": "Cartão X, Y e X",
-            "status": "open"
-        },
-        {
-            "id": "2024-08-21T23:58:1o.898414",
-            "title": "Pegar o carro no mecanico",
-            "description": "Rua Flutter do Trabalho, 303",
-            "status": "close"
-        }
+    "tasks": [
+      {
+        "id": "2bae",
+        "title": "Pagar Cartão",
+        "description": "Cartão X, Y e X",
+        "isCompleted": false
+      },
+      {
+        "id": "22ae",
+        "title": "Pegar o carro no mecanico",
+        "description": "Rua Flutter do Trabalho, 303",
+        "isCompleted": true
+      }
     ]
-}
+  }

@@ -78,4 +78,20 @@ class ApiClient {
       throw Exception('Unknown error');
     }
   }
+
+  Future<void> updateTask({required Task task}) async {
+    final data = task.toJson();
+
+    final response = await _dio.put("/tasks/${task.id}", data: data);
+
+    if (response.statusCode != null && response.statusCode! >= 400) {
+      throw NetworkException(
+        statusCode: response.statusCode!,
+        message: response.statusMessage,
+      );
+    } else if (response.statusCode != null) {
+    } else {
+      throw Exception('Unknown error');
+    }
+  }
 }

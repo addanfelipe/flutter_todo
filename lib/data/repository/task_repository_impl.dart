@@ -57,4 +57,10 @@ class TaskRepositoryImpl implements TaskRepository {
     await apiClient.deleteTask(id: id);
     database.taskDao.deleteTask(id);
   }
+
+  @override
+  Future<void> updateTask({required Task task}) async {
+    await apiClient.updateTask(task: task);
+    database.taskDao.updateTask(TaskEntity.fromTask(task));
+  }
 }

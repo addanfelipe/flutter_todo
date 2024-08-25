@@ -32,4 +32,5 @@ abstract class TaskRepository {
   Future<GetTasksResult> getTasks({required int page, required int limit, required bool isCompleted});
   Future<Task> createTask({required Task task});
   Future<void> deleteTask({required String id});
+  Future<void> updateTask({required Task task});
 }

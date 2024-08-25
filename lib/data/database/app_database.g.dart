@@ -124,6 +124,17 @@ class _$TaskDao extends TaskDao {
                   'description': item.description,
                   'isCompleted': item.isCompleted ? 1 : 0
                 },
+            changeListener),
+        _taskEntityUpdateAdapter = UpdateAdapter(
+            database,
+            'tasks',
+            ['id'],
+            (TaskEntity item) => <String, Object?>{
+                  'id': item.id,
+                  'title': item.title,
+                  'description': item.description,
+                  'isCompleted': item.isCompleted ? 1 : 0
+                },
             changeListener);
 
   final sqflite.DatabaseExecutor database;
@@ -133,6 +144,8 @@ class _$TaskDao extends TaskDao {
   final QueryAdapter _queryAdapter;
 
   final InsertionAdapter<TaskEntity> _taskEntityInsertionAdapter;
+
+  final UpdateAdapter<TaskEntity> _taskEntityUpdateAdapter;
 
   @override
   Future<List<TaskEntity>> findAll() async {
@@ -185,5 +198,10 @@ class _$TaskDao extends TaskDao {
   Future<void> insertTasks(List<TaskEntity> tasks) async {
     await _taskEntityInsertionAdapter.insertList(
         tasks, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> updateTask(TaskEntity task) async {
+    await _taskEntityUpdateAdapter.update(task, OnConflictStrategy.abort);
   }
 }

@@ -85,7 +85,8 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
   }
 
   Future<void> _handleCompletedTask(Task task) async {
-//    await taskRepository.updateTask(task.id);
+    final updatedTask = task.copyWith(isCompleted: true);
+    await taskRepository.updateTask(task: updatedTask);
     setState(() {
       _pagingController.itemList?.remove(task);
     });

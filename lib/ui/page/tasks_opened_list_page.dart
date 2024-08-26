@@ -185,7 +185,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
               builderDelegate: PagedChildBuilderDelegate<Task>(
                 noItemsFoundIndicatorBuilder: (context) => Center(
                   child: Text(
-                    'Utilize o botão de adionar tarefa.',
+                    'Adicione uma tarefa.',
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.onPrimary,
                       fontSize: 18,

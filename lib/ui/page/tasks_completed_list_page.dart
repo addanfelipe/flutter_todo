@@ -76,7 +76,7 @@ class _TasksCompletedListPageState extends State<TasksCompletedListPage> {
     }
   }
 
-  Future<void> _handleOpenTask(Task task) async {
+  Future<void> _handleReopenTask(Task task) async {
     final updatedTask = task.copyWith(isCompleted: false);
     await taskRepository.updateTask(task: updatedTask);
     setState(() {
@@ -107,7 +107,7 @@ class _TasksCompletedListPageState extends State<TasksCompletedListPage> {
                   leftWidget: Expanded(
                     flex: 1,
                     child: InkWell(
-                      onTap: () => _handleOpenTask(task),
+                      onTap: () => _handleReopenTask(task),
                       child: Container(
                         height: 100,
                         color: Theme.of(context).colorScheme.secondary,

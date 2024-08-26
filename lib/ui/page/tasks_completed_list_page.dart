@@ -88,12 +88,13 @@ class _TasksCompletedListPageState extends State<TasksCompletedListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
           widget.title,
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       body: Column(
         children: [
           Expanded(

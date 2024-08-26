@@ -131,12 +131,13 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(
           widget.title,
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
-        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       body: Column(
         children: [
           if (_isCreatingTask)
@@ -209,6 +210,8 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _handleCreateTask,
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
         child: const Icon(Icons.add),
       ),
     );

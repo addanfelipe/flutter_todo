@@ -31,7 +31,7 @@ class TaskCard extends StatelessWidget {
     return GestureDetector(
       onLongPress: onLongPress,
       child: Card(
-        color: theme.colorScheme.onPrimary,
+        color: theme.colorScheme.primaryContainer, // cor de fundo do Card
         elevation: 5,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
@@ -62,14 +62,14 @@ class TaskCard extends StatelessWidget {
                                   ),
                                   style: textTheme.titleMedium?.copyWith(
                                     fontWeight: FontWeight.bold,
-                                    color: theme.colorScheme.primary,
+                                    color: theme.colorScheme.onPrimaryContainer,
                                   ),
                                 )
                               : Text(
                                   task?.title ?? '',
                                   style: textTheme.titleMedium?.copyWith(
                                     fontWeight: FontWeight.bold,
-                                    color: theme.colorScheme.primary,
+                                    color: theme.colorScheme.onPrimaryContainer,
                                   ),
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
@@ -87,14 +87,16 @@ class TaskCard extends StatelessWidget {
                             ),
                             maxLines: null,
                             style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.primary.withOpacity(0.7),
+                              color:
+                                  theme.colorScheme.onPrimaryContainer.withOpacity(0.7),
                               height: 1.5,
                             ),
                           )
                         : Text(
                             task?.description ?? '',
                             style: textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.primary.withOpacity(0.7),
+                              color:
+                                  theme.colorScheme.onPrimaryContainer.withOpacity(0.7),
                               height: 1.5,
                             ),
                             textAlign: TextAlign.justify,

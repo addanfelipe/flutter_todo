@@ -1,0 +1,244 @@
+{
+  "tasks": [
+    {
+      "id": "fc9b1",
+      "title": "Pagar conta de luz",
+      "description": "R$ 200",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b2",
+      "title": "Comprar mantimentos",
+      "description": "R$ 500",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b3",
+      "title": "Reunião com cliente",
+      "description": "Discussão do projeto",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b4",
+      "title": "Renovar seguro do carro",
+      "description": "R$ 1500",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b5",
+      "title": "Limpeza da casa",
+      "description": "Faxina geral",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b6",
+      "title": "Enviar relatórios",
+      "description": "Relatórios mensais",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b7",
+      "title": "Consertar o ar-condicionado",
+      "description": "Técnico agendado",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b8",
+      "title": "Estudar para prova",
+      "description": "Matéria de matemática",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b9",
+      "title": "Atualizar software",
+      "description": "Versão nova disponível",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b10",
+      "title": "Ir ao dentista",
+      "description": "Limpeza anual",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b11",
+      "title": "Pagar IPVA",
+      "description": "R$ 1200",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b12",
+      "title": "Renovar passaporte",
+      "description": "Agendamento feito",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b13",
+      "title": "Comprar presente de aniversário",
+      "description": "Amigo João",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b14",
+      "title": "Preparar relatório financeiro",
+      "description": "Relatório trimestral",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b15",
+      "title": "Organizar documentos",
+      "description": "Pastas e arquivos",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b16",
+      "title": "Trocar óleo do carro",
+      "description": "Manutenção",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b17",
+      "title": "Agendar viagem",
+      "description": "Férias de dezembro",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b18",
+      "title": "Estudar nova tecnologia",
+      "description": "Flutter e Dart",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b19",
+      "title": "Assistir palestra",
+      "description": "Palestra online sobre AI",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b20",
+      "title": "Fazer backup dos arquivos",
+      "description": "Backup completo",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b21",
+      "title": "Pagar conta de gás",
+      "description": "R$ 300",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b22",
+      "title": "Comprar roupas",
+      "description": "Roupa de inverno",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b23",
+      "title": "Enviar proposta comercial",
+      "description": "Proposta para novo cliente",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b24",
+      "title": "Trocar lâmpadas",
+      "description": "Lâmpadas da sala",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b25",
+      "title": "Fazer exercício",
+      "description": "Caminhada diária",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b26",
+      "title": "Pagar aluguel",
+      "description": "R$ 1500",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b27",
+      "title": "Estudar programação",
+      "description": "Curso de Python",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b28",
+      "title": "Assistir filme",
+      "description": "Novo lançamento",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b29",
+      "title": "Jogar futebol",
+      "description": "Partida com amigos",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b30",
+      "title": "Revisar código",
+      "description": "Refatorar módulo X",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b31",
+      "title": "Fazer compras online",
+      "description": "Eletrodomésticos",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b32",
+      "title": "Pagar seguro saúde",
+      "description": "R$ 800",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b33",
+      "title": "Atualizar currículo",
+      "description": "Adicionar novo projeto",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b34",
+      "title": "Preparar jantar especial",
+      "description": "Jantar para amigos",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b35",
+      "title": "Limpar o jardim",
+      "description": "Cortar grama",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b36",
+      "title": "Finalizar projeto",
+      "description": "Entrega do módulo final",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b37",
+      "title": "Visitar os pais",
+      "description": "Feriado de domingo",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b38",
+      "title": "Pagar fatura do cartão",
+      "description": "R$ 1000",
+      "isCompleted": true
+    },
+    {
+      "id": "fc9b39",
+      "title": "Ler um livro",
+      "description": "Livro sobre tecnologia",
+      "isCompleted": false
+    },
+    {
+      "id": "fc9b40",
+      "title": "Planejar evento",
+      "description": "Festa de final de ano",
+      "isCompleted": true
+    }
+  ]
+}

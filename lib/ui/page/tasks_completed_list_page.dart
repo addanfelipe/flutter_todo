@@ -101,6 +101,15 @@ class _TasksCompletedListPageState extends State<TasksCompletedListPage> {
             child: PagedListView<int, Task>(
               pagingController: _pagingController,
               builderDelegate: PagedChildBuilderDelegate<Task>(
+                noItemsFoundIndicatorBuilder: (context) => Center(
+                  child: Text(
+                    'Nenhuma tarefa concluída até o momento.',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
                 itemBuilder: (context, task, index) => TaskCard(
                   task: task,
                   onLongPress: () => _showDeleteConfirmation(context, task),

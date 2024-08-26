@@ -183,6 +183,15 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
             child: PagedListView<int, Task>(
               pagingController: _pagingController,
               builderDelegate: PagedChildBuilderDelegate<Task>(
+                noItemsFoundIndicatorBuilder: (context) => Center(
+                  child: Text(
+                    'Utilize o botão de adionar tarefa.',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
                 itemBuilder: (context, task, index) => TaskCard(
                   task: task,
                   onLongPress: () => _showDeleteConfirmation(context, task),

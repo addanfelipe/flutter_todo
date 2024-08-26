@@ -137,7 +137,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
           style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),
         ),
       ),
-      backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
           if (_isCreatingTask)
@@ -187,7 +187,7 @@ class _TasksOpenedListPageState extends State<TasksOpenedListPage> {
                   child: Text(
                     'Adicione uma tarefa.',
                     style: TextStyle(
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 18,
                     ),
                   ),

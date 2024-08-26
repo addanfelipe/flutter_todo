@@ -11,7 +11,7 @@ class ConfigureProviders {
 
   static Future<ConfigureProviders> createDependencyTree() async {
 
-    final api_client = ApiClient(baseUrl: "http://192.168.0.21:3000");
+    final api_client = ApiClient(baseUrl: "http://192.168.13.75:3000");
     final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
     final task_repository = TaskRepositoryImpl(

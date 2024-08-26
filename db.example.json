@@ -1,16 +1,3 @@
 {
-    "tasks": [
-      {
-        "id": "2bae",
-        "title": "Pagar Cartão",
-        "description": "Cartão X, Y e X",
-        "isCompleted": false
-      },
-      {
-        "id": "22ae",
-        "title": "Pegar o carro no mecanico",
-        "description": "Rua Flutter do Trabalho, 303",
-        "isCompleted": true
-      }
-    ]
-  }
+  "tasks": []
+}

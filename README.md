@@ -2,15 +2,9 @@
 
 # Criação de classes do modelo com frezzed
 
-`dart run build_runner build`
+`make setup`
 
-# Api Web Local
+# Executar Api Web Local
 
-Para executar a aplicação é necessário rodar um json-server utilizando um banco de dados de filmes.
-https://github.com/prust/wikipedia-movie-data/blob/master/movies-2020s.json
-
-{
-"movies": [
-            ...https://github.com/prust/wikipedia-movie-data/blob/master/movies-2020s.json
-         ]
-}
+- Setar IP na maquina em `lib/core/configure_providers.dart`
+- `make api`

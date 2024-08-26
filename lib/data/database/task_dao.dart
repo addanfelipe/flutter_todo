@@ -15,7 +15,7 @@ abstract class TaskDao {
   @Query('DELETE FROM tasks WHERE isCompleted = :isCompleted')
   Future<void> deleteTasks(bool isCompleted);
 
-  @Query('DELETE FROM tasks id = :id')
+  @Query('DELETE FROM tasks WHERE id = :id')
   Future<void> deleteTask(String id);
 
   @update

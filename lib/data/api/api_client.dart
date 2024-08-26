@@ -28,7 +28,9 @@ class ApiClient {
       queryParameters: {
         '_page': page,
         '_per_page': limit,
-        'isCompleted': isCompleted
+        'isCompleted': isCompleted,
+        '_sort': 'title',
+        '_order': 'asc',
       },
     );
     if (response.statusCode != null && response.statusCode! >= 400) {
